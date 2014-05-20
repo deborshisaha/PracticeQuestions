@@ -22,7 +22,11 @@ bool isRotated (char *string1, char *string2) {
     // Lengths of two strings should match
     if(strlen(string1) == strlen(string2)) {
         // String length matches. Safe to proceed with further analysis
-        char *concatenatedString = (char *) malloc (2 * strlen(string1) * sizeof(char));
+        char *concatenatedString = (char *) malloc ((2 * strlen(string1) * sizeof(char)) + 1);
+
+        strcpy (concatenatedString, string2 );
+        strcat (concatenatedString, string2 );
+
         if(isSubstring(concatenatedString, string2)) {
             return true;
         }
